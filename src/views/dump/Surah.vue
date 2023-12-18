@@ -9,6 +9,7 @@ const lastPartState = ref(0)
 const sizePart = ref(0)
 const surah: Ref<any> = ref({})
 const surahLoading = ref(false)
+const scrollSen = ref(null)
 
 const dialogSurahShow = ref(false)
 const evenTexture2 = ref("bg-gray-100 bg-[url('/french-stucco.png')]")
@@ -20,6 +21,9 @@ const getSurah = async (id: any, lastPart: any) => {
         if (lastPart == 0 ){
             surah.value = resp
 
+            setTimeout(() => {
+                scrollSen.value.scrollTo({top: 0, behavior: 'smooth'});
+            })
             sizePart.value = Math.ceil(resp.numberOfVerses/10)
         } else {
             surah.value.verses = surah.value.verses.concat(...resp.verses)
@@ -53,7 +57,7 @@ onMounted(() => {
 })
 </script>
 <template>
-    <div class="font-default h-screen overflow-y-scroll no-scrollbar" @scroll="onScroll">
+    <div class="font-default h-screen overflow-y-scroll no-scrollbar" ref="scrollSen" @scroll="onScroll">
         <div class="relative border-b border-gray-300 p-0.5">
             <div class="top-0 left-0 w-full border-b border-gray-400">
                 <div class="grid grid-cols-4">
