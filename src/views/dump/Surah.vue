@@ -35,7 +35,7 @@ const getSurah = async (id: any, lastPart: any) => {
 
 const onScroll = (e: any) => {
     const { scrollTop, offsetHeight, scrollHeight } = e.target
-    if ((scrollTop + offsetHeight) >= scrollHeight) {
+    if ((scrollTop + offsetHeight) >= scrollHeight-100) {
         if (!surahLoading.value && (sizePart.value-1) > lastPartState.value) {
             lastPartState.value += 1
             getSurah(surah.value.number, lastPartState.value)
