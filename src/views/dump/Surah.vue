@@ -9,7 +9,7 @@ const lastPartState = ref(0)
 const sizePart = ref(0)
 const surah: Ref<any> = ref({})
 const surahLoading = ref(false)
-const scrollSen = ref(null)
+const scrollSen: Ref<any> = ref(null)
 
 const dialogSurahShow = ref(false)
 const evenTexture2 = ref("bg-gray-100 bg-[url('/french-stucco.png')]")
