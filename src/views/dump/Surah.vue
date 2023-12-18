@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
+import {onMounted, type Ref, ref} from "vue";
 import ListSurah from "@/views/dump/ListSurah.vue";
 import {useSurahStore} from "@/stores/surah";
 
@@ -7,7 +7,7 @@ const surahStore = useSurahStore()
 
 const lastPartState = ref(0)
 const sizePart = ref(0)
-const surah = ref({})
+const surah: Ref<any> = ref({})
 const surahLoading = ref(false)
 
 const dialogSurahShow = ref(false)

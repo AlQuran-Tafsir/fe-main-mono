@@ -14,7 +14,7 @@ export const useSurahStore = defineStore('surah', () => {
                     localStorage.setItem("surah::"+id+":"+part, JSON.stringify(response.data))
                     resolve(response.data)
                 }
-            } catch (e) {
+            } catch (e: any) {
                 console.log(e.message)
                 reject(e)
             }
